@@ -1,1 +1,1 @@
-Stream - free/open Warehose Management Solution
+Stream - free/open Warehouse Management Solution
