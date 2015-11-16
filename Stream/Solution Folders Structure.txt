@@ -1,0 +1,2 @@
+Libs	-	any non-GAC-assemblies needed by the projects in the solution
+Tools	-	any tools needed for automated builds and such (NUnit, NCover, MSBuild tasks, ...)

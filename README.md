@@ -1,2 +1,0 @@
-# stream
-Stream WMS
