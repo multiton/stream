@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{C0C3730B-A723-4DAE-B8A8-3E2091A64193}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,13 +28,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data Access Layer", "3 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Resources Layer", "4 - Resources Layer", "{63BB8633-5B5A-4095-858F-1D8D4695F42B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 - Common Infrastructure", "9 - Common Infrastructure", "{1381E373-672A-4766-B67E-3CAF4ECBBE5C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 - Common Shared", "9 - Common Shared", "{1381E373-672A-4766-B67E-3CAF4ECBBE5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{DE81AD20-F8C2-41D1-B863-0727FBFD2FB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{BE2A9741-083A-44E8-B25D-F31BC2FE6A64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Domain.Entity", "Stream.Domain.Entity\Stream.Domain.Entity.csproj", "{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -51,5 +63,6 @@ Global
 		{1381E373-672A-4766-B67E-3CAF4ECBBE5C} = {6E1EF87E-7462-4093-B700-AD4D17A44989}
 		{DE81AD20-F8C2-41D1-B863-0727FBFD2FB1} = {BE0B6397-A053-46BD-9944-571A7A09A713}
 		{BE2A9741-083A-44E8-B25D-F31BC2FE6A64} = {BE0B6397-A053-46BD-9944-571A7A09A713}
+		{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214} = {1381E373-672A-4766-B67E-3CAF4ECBBE5C}
 	EndGlobalSection
 EndGlobal
