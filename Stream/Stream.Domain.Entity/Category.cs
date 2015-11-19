@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Stream.Domain.Entity
 {
     public class Category
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
+        [Required]
+        [StringLength(255)]
         public string Name { get; set; }
-        
+
         public Guid? ParentId { get; set; }
+
+        public bool Disabled { get; set; }
 
         public virtual Category Parent { get; set; }
         
