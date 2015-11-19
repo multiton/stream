@@ -5,6 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{C0C3730B-A723-4DAE-B8A8-3E2091A64193}"
 	ProjectSection(SolutionItems) = preProject
+		Functional Constraints.txt = Functional Constraints.txt
 		Solution Folders Structure.txt = Solution Folders Structure.txt
 	EndProjectSection
 EndProject

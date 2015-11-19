@@ -1,0 +1,3 @@
+Field(property) Name for Category-entity should not be unique globaly.
+We can have the sub-category(node) like 'Tools' or 'Accessory' in many places.
+We should have the unique constraint only witin one node.

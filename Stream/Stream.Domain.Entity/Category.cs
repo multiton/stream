@@ -6,7 +6,7 @@ namespace Stream.Domain.Entity
 {
     public class Category
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } //= Guid.NewGuid();
 
         [Required]
         [StringLength(255)]
