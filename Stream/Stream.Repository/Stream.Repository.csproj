@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}</ProjectGuid>
+    <ProjectGuid>{44216AD4-8CCF-465B-9861-E5B752588D50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stream.Domain.Entity</RootNamespace>
-    <AssemblyName>Stream.Domain.Entity</AssemblyName>
+    <RootNamespace>Stream.Repository</RootNamespace>
+    <AssemblyName>Stream.Repository</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,15 +31,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product\Category.cs" />
-    <Compile Include="Product\Item.cs" />
+    <Compile Include="GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Stream.Repository.Facade\Stream.Repository.Facade.csproj">
+      <Project>{75470c11-5b88-4a9b-af19-34da7a1e805a}</Project>
+      <Name>Stream.Repository.Facade</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

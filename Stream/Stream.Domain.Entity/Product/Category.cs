@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Stream.Domain.Entity
+namespace Stream.Domain.Entity.Product
 {
     public class Category
     {
