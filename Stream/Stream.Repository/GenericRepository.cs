@@ -1,41 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.Data.Entity;
+
+using Stream.DAL.Facade;
 using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class GenericRepository<TEntity, TKey>
-        : IGenericRepository<TEntity, TKey> where TEntity: class, new()
+    public abstract class GenericRepository<TEntity>
+        : IGenericRepository<TEntity> where TEntity: class, new()
     {
-        public void Insert(TEntity entity)
+        private readonly IUnitOfWork unitOfWork;
+
+        private DbSet<TEntity> entities;
+
+        protected GenericRepository(IUnitOfWork unitOfWork)
         {
-            //
+            this.unitOfWork = unitOfWork;
+            InitEntitiesCollection();
         }
 
-        public TEntity Get(TKey id)
+        private void InitEntitiesCollection()
         {
-            return new TEntity();
+            if (this.unitOfWork is EntityFrameworkUnitOfWork)
+            {
+                this.entities = ((EntityFrameworkUnitOfWork) this.unitOfWork).GetDbSet<TEntity>();
+            }
+            else
+            {
+                throw new Exception("Must be EFUnitOfWork"); // TODO: Typed exception
+            }
+        }
+
+        public void Insert(TEntity entity)
+        {
+            this.entities.Add(entity);
+        }
+
+        public TEntity Get(Expression<Func<TEntity, bool>> predicate)
+        {
+            return entities.FirstOrDefault(predicate);
         }
 
         public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
-            return new List<TEntity>();
+            return entities.Where(predicate);
         }
 
         public void Update(TEntity entity)
         {
-            //
+            this.entities.Update(entity);
         }
 
-        public void Delete(TKey id)
+        public void Delete(TEntity entity)
         {
-            //
+            this.entities.Remove(entity);
         }
 
         public void SaveChanges()
         {
-            //
+            this.unitOfWork.SaveChanges();
         }
 
         public void Dispose()
@@ -43,22 +69,19 @@ namespace Stream.Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        ~GenericRepository() 
-        {
-            Dispose(false);
-        }
-
+        
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
             {
-                //if (dbContext != null)
-                //{
-                //    dbContext.Dispose();
-                //    dbContext = null;
-                //}
+                this.unitOfWork.Dispose();                
             }
         }
+
+        ~GenericRepository()
+        {
+            Dispose(false);
+        }
+
     }
 }
