@@ -9,8 +9,7 @@ using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class GenericRepository<TEntity>
-        : IGenericRepository<TEntity> where TEntity: class, new()
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity: class, new()
     {
         private readonly IUnitOfWork unitOfWork;
 
