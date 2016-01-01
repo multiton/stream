@@ -6,7 +6,7 @@ namespace Stream.Repository.Product
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
-        public CategoryRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public CategoryRepository(IUnitOfWork unitOfWork, IEntityCollection<Category> entities) : base(unitOfWork, entities)
         {            
         }
     }

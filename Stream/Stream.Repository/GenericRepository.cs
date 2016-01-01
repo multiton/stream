@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using Microsoft.Data.Entity;
 
 using Stream.DAL.Facade;
 using Stream.Repository.Facade;
@@ -13,24 +11,12 @@ namespace Stream.Repository
     {
         private readonly IUnitOfWork unitOfWork;
 
-        private DbSet<TEntity> entities;
+        private readonly IEntityCollection<TEntity> entities;
 
-        protected GenericRepository(IUnitOfWork unitOfWork)
+        protected GenericRepository(IUnitOfWork unitOfWork, IEntityCollection<TEntity> entities)
         {
             this.unitOfWork = unitOfWork;
-            InitEntitiesCollection();
-        }
-
-        private void InitEntitiesCollection()
-        {
-            if (this.unitOfWork is EntityFrameworkUnitOfWork)
-            {
-                this.entities = ((EntityFrameworkUnitOfWork) this.unitOfWork).GetDbSet<TEntity>();
-            }
-            else
-            {
-                throw new Exception("Must be EFUnitOfWork"); // TODO: Typed exception
-            }
+            this.entities = entities;
         }
 
         public void Insert(TEntity entity)
@@ -81,6 +67,5 @@ namespace Stream.Repository
         {
             Dispose(false);
         }
-
     }
 }
