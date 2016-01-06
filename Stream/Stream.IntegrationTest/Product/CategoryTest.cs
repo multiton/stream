@@ -11,7 +11,7 @@ namespace Stream.IntegrationTest.Product
         [TestMethod]
         public void AddRemoveCategory()
         {
-            var categoryRepository = IoCHost.IocHost.Get<ICategoryRepository>();
+            var categoryRepository = IoCHost.Instance.Get<ICategoryRepository>();
         }
     }
 }
