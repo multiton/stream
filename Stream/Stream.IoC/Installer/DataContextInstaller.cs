@@ -5,7 +5,7 @@ using Castle.Windsor;
 using Stream.DAL.EntityFramework;
 using Stream.DAL.Facade;
 
-namespace Stream.IoC
+namespace Stream.IoC.Installer
 {
     public class DataContextInstaller : IWindsorInstaller
     {

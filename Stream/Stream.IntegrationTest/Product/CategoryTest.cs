@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Stream.IoC.Facade;
+
+using Stream.IoC;
+using Stream.Repository.Facade.Product;
 
 namespace Stream.IntegrationTest.Product
 {
@@ -9,9 +11,7 @@ namespace Stream.IntegrationTest.Product
         [TestMethod]
         public void AddRemoveCategory()
         {
-            IObjectResolvable iocResolver = null;
-
-            // var categoryRepository = iocResolver.Get<ICategoryRepository>();
+            var categoryRepository = IoCHost.IocHost.Get<ICategoryRepository>();
         }
     }
 }

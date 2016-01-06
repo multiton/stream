@@ -5,7 +5,7 @@ using Castle.Windsor;
 using Stream.Domain.Entity.Product;
 using Stream.Repository.Facade;
 
-namespace Stream.IoC
+namespace Stream.IoC.Installer
 {
     class RepositoryInstaller : IWindsorInstaller
     {

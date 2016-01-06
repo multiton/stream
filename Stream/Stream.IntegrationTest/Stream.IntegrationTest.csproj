@@ -61,6 +61,14 @@
       <Project>{E8FAE096-9AA3-42CB-A28F-FAA74664EBE8}</Project>
       <Name>Stream.IoC.Facade</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Stream.IoC\Stream.IoC.csproj">
+      <Project>{AFD1E300-7137-497A-AB90-6B497E333AD2}</Project>
+      <Name>Stream.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream.Repository.Facade\Stream.Repository.Facade.csproj">
+      <Project>{75470C11-5B88-4A9B-AF19-34DA7A1E805A}</Project>
+      <Name>Stream.Repository.Facade</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

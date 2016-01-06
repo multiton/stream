@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace Stream.IoC
+namespace Stream.IoC.Installer
 {
     class ServiceInstaller : IWindsorInstaller
     {
