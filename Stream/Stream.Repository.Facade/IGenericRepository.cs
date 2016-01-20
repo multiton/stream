@@ -12,9 +12,9 @@ namespace Stream.Repository.Facade
 
         IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
 
-        void Update(TEntity entity);
+        TEntity Save(TEntity entity);
 
-        void Delete(TEntity entity);
+        bool Remove(TEntity entity);
 
         void SaveChanges();
     }

@@ -3,45 +3,58 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 
 using Stream.DAL.Facade;
+using Stream.Domain.Entity.Facade;
 using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity: class, new()
+    public abstract class GenericRepository<TId, TEntity> :
+        IModifiable<TEntity>,
+        ICreatable<TEntity>,
+        IFindable<TEntity>
+        where TEntity : class, IIdentifiable<TId>, new()
     {
         private readonly IUnitOfWork unitOfWork;
 
-        private readonly IEntityCollection<TEntity> entities;
+        private readonly IEntityCollection<TEntity, TId> entities;
 
-        protected GenericRepository(IUnitOfWork unitOfWork, IEntityCollection<TEntity> entities)
+        protected GenericRepository(IUnitOfWork unitOfWork, IEntityCollection<TEntity, TId> entities)
         {
             this.unitOfWork = unitOfWork;
             this.entities = entities;
         }
 
-        public void Insert(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             this.entities.Add(entity);
+            return entity;
         }
+
+        //public TEntity Get(TId id)
+        //{
+        //    return entities.Where(x => x.Id.Equals(id));
+        //}
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {
             return entities.FirstOrDefault(predicate);
         }
 
-        public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return entities.Where(predicate);
         }
 
-        public void Update(TEntity entity)
+        public TEntity Save(TEntity entity)
         {
             this.entities.Update(entity);
+
+            return entity;
         }
 
-        public void Delete(TEntity entity)
+        public bool Remove(TEntity entity)
         {
-            this.entities.Remove(entity);
+            return this.entities.Remove(entity);
         }
 
         public void SaveChanges()

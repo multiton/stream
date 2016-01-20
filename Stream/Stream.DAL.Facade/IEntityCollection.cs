@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
+using Stream.Domain.Entity.Facade;
+
 namespace Stream.DAL.Facade
 {
-    public interface IEntityCollection<TEntity> where TEntity : class, new()
+    public interface IEntityCollection<TEntity, TId> //where TEntity : class, new()
+        where TEntity : class, IIdentifiable<TId>, new()
+        //where TId : stuct
     {
         void Add(TEntity entity);
 
-        void Remove(TEntity entity);
+        bool Remove(TEntity entity);
 
         void Update(TEntity entity);
 

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Stream.Repository</RootNamespace>
     <AssemblyName>Stream.Repository</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,8 +48,12 @@
       <Project>{20459FBC-96B8-44A3-BCBD-01A79182A754}</Project>
       <Name>Stream.DAL.Facade</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Stream.Domain.Entity.Facade\Stream.Domain.Entity.Facade.csproj">
+      <Project>{ce2c9d83-19b2-43d9-9c97-a5b1587aa2df}</Project>
+      <Name>Stream.Domain.Entity.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
-      <Project>{F5DBCB55-CE23-484C-B1D8-47BCB3CCC214}</Project>
+      <Project>{526b8929-e107-4b9a-98b6-778c6f2491c1}</Project>
       <Name>Stream.Domain.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Stream.Repository.Facade\Stream.Repository.Facade.csproj">

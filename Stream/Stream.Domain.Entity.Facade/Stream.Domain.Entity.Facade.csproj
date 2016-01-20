@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{526B8929-E107-4B9A-98B6-778C6F2491C1}</ProjectGuid>
+    <ProjectGuid>{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stream.Domain.Entity</RootNamespace>
-    <AssemblyName>Stream.Domain.Entity</AssemblyName>
+    <RootNamespace>Stream.Domain.Entity.Facade</RootNamespace>
+    <AssemblyName>Stream.Domain.Entity.Facade</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,21 +31,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product\Category.cs" />
-    <Compile Include="Product\Item.cs" />
+    <Compile Include="BaseIdInitializer.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="GuidIdInitializer.cs" />
+    <Compile Include="IIdentifiable.cs" />
+    <Compile Include="INewId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Stream.Domain.Entity.Facade\Stream.Domain.Entity.Facade.csproj">
-      <Project>{ce2c9d83-19b2-43d9-9c97-a5b1587aa2df}</Project>
-      <Name>Stream.Domain.Entity.Facade</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
