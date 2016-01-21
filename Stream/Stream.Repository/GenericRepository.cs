@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 using Stream.DAL.Facade;
@@ -8,11 +9,13 @@ using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class GenericRepository<TId, TEntity> :
+    public abstract class GenericRepository<TId, TEntity, TIdInitializer> :
         IModifiable<TEntity>,
         ICreatable<TEntity>,
         IFindable<TEntity>
-        where TEntity : class, IIdentifiable<TId>, new()
+        where TId : struct
+        where TEntity : BaseEntity<TId>
+        where TIdInitializer : INewId<TId>, new()
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -26,14 +29,16 @@ namespace Stream.Repository
 
         public TEntity Add(TEntity entity)
         {
+            entity.Id = new TIdInitializer().GetNewId(entity.Id);
             this.entities.Add(entity);
+
             return entity;
         }
 
-        //public TEntity Get(TId id)
-        //{
-        //    return entities.Where(x => x.Id.Equals(id));
-        //}
+        public TEntity Get(TId id)
+        {
+            return entities.Where(x => x.Id.Equals(id)).SingleOrDefault();
+        }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
         {

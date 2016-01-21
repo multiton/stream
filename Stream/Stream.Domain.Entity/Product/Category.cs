@@ -6,7 +6,7 @@ using Stream.Domain.Entity.Facade;
 
 namespace Stream.Domain.Entity.Product
 {
-    public class Category :  Entity<Guid, GuidIdInitializer>
+    public class Category :  BaseEntity<Guid>
     {
         [Required]
         [StringLength(255)]

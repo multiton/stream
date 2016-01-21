@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseIdInitializer.cs" />
-    <Compile Include="Entity.cs" />
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="GuidIdInitializer.cs" />
     <Compile Include="IIdentifiable.cs" />
     <Compile Include="INewId.cs" />

@@ -6,9 +6,9 @@ using Stream.Domain.Entity.Facade;
 
 namespace Stream.DAL.Facade
 {
-    public interface IEntityCollection<TEntity, TId> //where TEntity : class, new()
-        where TEntity : class, IIdentifiable<TId>, new()
-        //where TId : stuct
+    public interface IEntityCollection<TEntity, TId>
+        where TEntity : BaseEntity<TId>
+        where TId : struct
     {
         void Add(TEntity entity);
 

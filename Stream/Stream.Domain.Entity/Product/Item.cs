@@ -4,7 +4,7 @@ using Stream.Domain.Entity.Facade;
 
 namespace Stream.Domain.Entity.Product
 {
-    public class Item : Entity<Guid, GuidIdInitializer>
+    public class Item : BaseEntity<Guid>
     {
         [Required]
         public string Name { get; set; }
