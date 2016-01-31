@@ -38,8 +38,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFrameworkGenericRepository.cs" />
     <Compile Include="EntityFrameworkUnitOfWork.cs" />
-    <Compile Include="GenericRepository.cs" />
     <Compile Include="Product\CategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

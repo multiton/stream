@@ -37,13 +37,15 @@
   <ItemGroup>
     <Compile Include="ICreatable.cs" />
     <Compile Include="IFindable.cs" />
-    <Compile Include="IGenericRepository.cs" />
     <Compile Include="IModifiable.cs" />
     <Compile Include="IRetrivableById.cs" />
-    <Compile Include="Product\ICategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Stream.Domain.Entity.Facade\Stream.Domain.Entity.Facade.csproj">
+      <Project>{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}</Project>
+      <Name>Stream.Domain.Entity.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
       <Project>{526b8929-e107-4b9a-98b6-778c6f2491c1}</Project>
       <Name>Stream.Domain.Entity</Name>

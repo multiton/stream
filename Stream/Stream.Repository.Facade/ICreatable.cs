@@ -4,6 +4,6 @@
     {
         TEntity Add(TEntity entity);
 
-        bool Remove(TEntity entity);
+        TEntity Remove(TEntity entity);
     }
 }

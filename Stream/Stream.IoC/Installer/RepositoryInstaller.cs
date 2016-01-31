@@ -11,10 +11,11 @@ namespace Stream.IoC.Installer
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(
-                Types.FromAssembly(typeof(Item).Assembly)
-                .BasedOn(typeof(IGenericRepository<>))
-                .LifestyleTransient());
+            // ToDo: How to register ???
+            //container.Register(
+            //    Types.FromAssembly(typeof(Item).Assembly)
+            //    .BasedOn(typeof(EntityFrameworkGenericRepository<,,>))
+            //    .LifestyleTransient());
         }
     }
 }

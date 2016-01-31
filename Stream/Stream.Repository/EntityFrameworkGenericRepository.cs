@@ -1,30 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 
-using Stream.DAL.Facade;
+using Microsoft.Data.Entity;
+
 using Stream.Domain.Entity.Facade;
 using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class GenericRepository<TId, TEntity, TIdInitializer> :
-        IModifiable<TEntity>,
+    public abstract class EntityFrameworkGenericRepository<TId, TEntity, TIdInitializer> :
         ICreatable<TEntity>,
+        IModifiable<TEntity>,
         IFindable<TEntity>
         where TId : struct
         where TEntity : BaseEntity<TId>
         where TIdInitializer : INewId<TId>, new()
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly DbContext dbContext;
+        private readonly DbSet<TEntity> entities;
 
-        private readonly IEntityCollection<TEntity, TId> entities;
-
-        protected GenericRepository(IUnitOfWork unitOfWork, IEntityCollection<TEntity, TId> entities)
+        protected EntityFrameworkGenericRepository(DbContext dbContext)
         {
-            this.unitOfWork = unitOfWork;
-            this.entities = entities;
+            this.dbContext = dbContext;
+            this.entities = dbContext.Set<TEntity>();
         }
 
         public TEntity Add(TEntity entity)
@@ -37,7 +37,7 @@ namespace Stream.Repository
 
         public TEntity Get(TId id)
         {
-            return entities.Where(x => x.Id.Equals(id)).SingleOrDefault();
+            return entities.SingleOrDefault(x => x.Id.Equals(id));
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> predicate)
@@ -53,37 +53,18 @@ namespace Stream.Repository
         public TEntity Save(TEntity entity)
         {
             this.entities.Update(entity);
-
             return entity;
         }
 
-        public bool Remove(TEntity entity)
+        public TEntity Remove(TEntity entity)
         {
-            return this.entities.Remove(entity);
+            this.entities.Remove(entity);
+            return entity;                
         }
 
         public void SaveChanges()
         {
-            this.unitOfWork.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.unitOfWork.Dispose();                
-            }
-        }
-
-        ~GenericRepository()
-        {
-            Dispose(false);
+            this.dbContext.SaveChanges();
         }
     }
 }
