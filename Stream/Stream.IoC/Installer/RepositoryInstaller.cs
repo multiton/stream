@@ -1,8 +1,8 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.Windsor;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
-using Castle.Windsor;
 
-using Stream.Domain.Entity.Product;
+using Stream.Repository;
 using Stream.Repository.Facade;
 
 namespace Stream.IoC.Installer
@@ -11,11 +11,21 @@ namespace Stream.IoC.Installer
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            // ToDo: How to register ???
-            //container.Register(
-            //    Types.FromAssembly(typeof(Item).Assembly)
-            //    .BasedOn(typeof(EntityFrameworkGenericRepository<,,>))
-            //    .LifestyleTransient());
+            container.Register
+            (
+                Types.FromAssembly
+                (
+                    typeof(EntityFrameworkGenericRepository<,,>).Assembly
+                )
+                .BasedOn
+                (
+                    typeof(ICreatable<>),
+                    typeof(IModifiable<>),
+                    typeof(IFindable<>)
+                )
+                .WithServiceAllInterfaces()
+                .LifestylePerWebRequest()
+            );
         }
     }
 }

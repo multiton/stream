@@ -88,10 +88,6 @@
       <Project>{20459FBC-96B8-44A3-BCBD-01A79182A754}</Project>
       <Name>Stream.DAL.Facade</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
-      <Project>{526b8929-e107-4b9a-98b6-778c6f2491c1}</Project>
-      <Name>Stream.Domain.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Stream.IoC.Facade\Stream.IoC.Facade.csproj">
       <Project>{E8FAE096-9AA3-42CB-A28F-FAA74664EBE8}</Project>
       <Name>Stream.IoC.Facade</Name>
@@ -99,6 +95,10 @@
     <ProjectReference Include="..\Stream.Repository.Facade\Stream.Repository.Facade.csproj">
       <Project>{75470c11-5b88-4a9b-af19-34da7a1e805a}</Project>
       <Name>Stream.Repository.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream.Repository\Stream.Repository.csproj">
+      <Project>{44216ad4-8ccf-465b-9861-e5b752588d50}</Project>
+      <Name>Stream.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
