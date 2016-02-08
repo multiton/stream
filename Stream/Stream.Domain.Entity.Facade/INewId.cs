@@ -1,8 +1,9 @@
 ﻿namespace Stream.Domain.Entity.Facade
 {
-    public interface INewId<TId>
+    public interface INewId<out TId, in TEntity>
     {
-        TId GetNewId(TId id);
+        TId GetNewId(TEntity entity);
+
         TId GetNewId();
     }
 }

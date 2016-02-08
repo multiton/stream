@@ -6,7 +6,7 @@ using Stream.Domain.Entity.Product;
 
 namespace Stream.Repository.Product
 {
-    public class CategoryRepository : EntityFrameworkGenericRepository<Guid, Category, GuidIdInitializer>
+    public class CategoryRepository : EntityFrameworkGenericRepository<Guid, Category, GuidIdInitializer<Category>>
     {
         public CategoryRepository(DbContext dbContext) : base(dbContext)
         {            

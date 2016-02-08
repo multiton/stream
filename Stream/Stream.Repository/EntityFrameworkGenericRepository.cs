@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-
 using Microsoft.Data.Entity;
 
 using Stream.Domain.Entity.Facade;
@@ -16,7 +15,7 @@ namespace Stream.Repository
         IFindable<TEntity>
         where TId : struct
         where TEntity : BaseEntity<TId>
-        where TIdInitializer : INewId<TId>, new()
+        where TIdInitializer : INewId<TId, TEntity>, new()
     {
         private readonly DbContext dbContext;
         private readonly DbSet<TEntity> entities;
@@ -29,7 +28,7 @@ namespace Stream.Repository
 
         public TEntity Add(TEntity entity)
         {
-            entity.Id = new TIdInitializer().GetNewId(entity.Id);
+            entity.Id = new TIdInitializer().GetNewId(entity);
             this.entities.Add(entity);
 
             return entity;

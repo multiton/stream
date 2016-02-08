@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Domain.Entity", "Str
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Domain.Entity.Facade", "Stream.Domain.Entity.Facade\Stream.Domain.Entity.Facade.csproj", "{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Core.Services", "Stream.Core.Services\Stream.Core.Services.csproj", "{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,5 +127,6 @@ Global
 		{20459FBC-96B8-44A3-BCBD-01A79182A754} = {65322A22-8D0B-4B18-9B35-B83F95A2695C}
 		{526B8929-E107-4B9A-98B6-778C6F2491C1} = {1381E373-672A-4766-B67E-3CAF4ECBBE5C}
 		{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF} = {1381E373-672A-4766-B67E-3CAF4ECBBE5C}
+		{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7} = {35572E86-BD94-4DCB-841B-AA85E42A15D5}
 	EndGlobalSection
 EndGlobal
