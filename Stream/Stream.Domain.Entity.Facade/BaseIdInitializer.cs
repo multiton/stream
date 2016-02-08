@@ -2,9 +2,7 @@
 
 namespace Stream.Domain.Entity.Facade
 {
-    public abstract class BaseIdInitializer<TId, TEntity> : INewId<TId, TEntity>
-        where TEntity : BaseEntity<TId>
-        where TId : struct
+    public abstract class BaseIdInitializer<TId> : INewId<TId> where TId : struct
     {
         private readonly Func<TId> emptyValue;
         private readonly Func<TId> newValue;
@@ -15,7 +13,7 @@ namespace Stream.Domain.Entity.Facade
             this.newValue = newValue;
         }
 
-        public TId GetNewId(TEntity entity)
+        public TId GetNewId<TEntity>(TEntity entity) where TEntity : BaseEntity<TId>
         {
             if (entity.Id.Equals(this.emptyValue()))
             {

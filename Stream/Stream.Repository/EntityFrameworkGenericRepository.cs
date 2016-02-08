@@ -15,7 +15,7 @@ namespace Stream.Repository
         IFindable<TEntity>
         where TId : struct
         where TEntity : BaseEntity<TId>
-        where TIdInitializer : INewId<TId, TEntity>, new()
+        where TIdInitializer : INewId<TId>, new()
     {
         private readonly DbContext dbContext;
         private readonly DbSet<TEntity> entities;
