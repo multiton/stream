@@ -2,14 +2,14 @@
 
 namespace System.Core.Services.Facade
 {
-    public abstract class BaseDataService : IDisposable
+    public abstract class BaseEntityFrameworkDataService : IDisposable
     {
-        // ToDo: Pending
+        // ToDo: Pending.
         // private readonly EntityFrameworkRepository<TId, TEntity, TIdInitializer> Repository;
 
         protected readonly IUnitOfWork UnitOfWork;
 
-        protected BaseDataService(IUnitOfWork unitOfWork)
+        protected BaseEntityFrameworkDataService(IUnitOfWork unitOfWork)
         {
             this.UnitOfWork = unitOfWork;
         }
