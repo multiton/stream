@@ -32,17 +32,39 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Product\CategoryService.cs" />
     <Compile Include="Product\ItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stream.DAL.Facade\Stream.DAL.Facade.csproj">
+      <Project>{20459FBC-96B8-44A3-BCBD-01A79182A754}</Project>
+      <Name>Stream.DAL.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream.Domain.Entity.Facade\Stream.Domain.Entity.Facade.csproj">
+      <Project>{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}</Project>
+      <Name>Stream.Domain.Entity.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
+      <Project>{526b8929-e107-4b9a-98b6-778c6f2491c1}</Project>
+      <Name>Stream.Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stream.Repository.Facade\Stream.Repository.Facade.csproj">
+      <Project>{75470c11-5b88-4a9b-af19-34da7a1e805a}</Project>
+      <Name>Stream.Repository.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Core.Services.Facade\System.Core.Services.Facade.csproj">
+      <Project>{1F9DAB0A-764F-40BF-8454-B66E7665BD5B}</Project>
+      <Name>System.Core.Services.Facade</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

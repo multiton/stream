@@ -5,7 +5,7 @@
         public ItemService(object itemRepository, object unitOfWork)
         {
             // this.itemRepository = itemRepository;
-            // this.unitOfWork = unitOfWork;
+            // this.UnitOfWork = UnitOfWork;
         }
     }
 }

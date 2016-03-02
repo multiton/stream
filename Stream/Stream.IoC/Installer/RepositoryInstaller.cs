@@ -15,7 +15,7 @@ namespace Stream.IoC.Installer
             (
                 Types.FromAssembly
                 (
-                    typeof(EntityFrameworkGenericRepository<,,>).Assembly
+                    typeof(EntityFrameworkRepository<,,>).Assembly
                 )
                 .BasedOn
                 (

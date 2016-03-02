@@ -1,9 +1,10 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.Windsor;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
-using Castle.Windsor;
+
+using Microsoft.Data.Entity;
 
 using Stream.DAL.EntityFramework;
-using Stream.DAL.Facade;
 
 namespace Stream.IoC.Installer
 {
@@ -11,7 +12,7 @@ namespace Stream.IoC.Installer
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IUnitOfWork>().ImplementedBy<CoreDataContext>().LifestyleTransient());
+            container.Register(Component.For<DbContext>().ImplementedBy<CoreDataContext>().LifestyleTransient());
         }
     }
 }

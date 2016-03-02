@@ -39,6 +39,7 @@
     <Compile Include="IFindable.cs" />
     <Compile Include="IModifiable.cs" />
     <Compile Include="IRetrivableById.cs" />
+    <Compile Include="Product\ICategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

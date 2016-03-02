@@ -1,5 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Stream.Domain.Entity.Product;
 using Stream.IoC;
+using Stream.Repository.Facade.Product;
 
 namespace Stream.IntegrationTest.Product
 {
@@ -10,7 +14,7 @@ namespace Stream.IntegrationTest.Product
         public void AddRemoveCategory()
         {
             // How to Resolve ???
-            // var categoryRepository = IoCHost.Instance.Get<ICategoryRepository>();
+            // var categoryRepository = IoCHost.Instance.Get<ICategoryRepository<Category, Guid>>();
         }
     }
 }

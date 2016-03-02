@@ -9,7 +9,7 @@ using Stream.Repository.Facade;
 
 namespace Stream.Repository
 {
-    public abstract class EntityFrameworkGenericRepository<TId, TEntity, TIdInitializer> :
+    public class EntityFrameworkRepository<TId, TEntity, TIdInitializer> :
         ICreatable<TEntity>,
         IModifiable<TEntity>,
         IFindable<TEntity>
@@ -20,7 +20,7 @@ namespace Stream.Repository
         private readonly DbContext dbContext;
         private readonly DbSet<TEntity> entities;
 
-        protected EntityFrameworkGenericRepository(DbContext dbContext)
+        protected EntityFrameworkRepository(DbContext dbContext)
         {
             this.dbContext = dbContext;
             this.entities = dbContext.Set<TEntity>();

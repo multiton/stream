@@ -58,6 +58,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
+      <Project>{526B8929-E107-4B9A-98B6-778C6F2491C1}</Project>
+      <Name>Stream.Domain.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Stream.IoC.Facade\Stream.IoC.Facade.csproj">
       <Project>{E8FAE096-9AA3-42CB-A28F-FAA74664EBE8}</Project>
       <Name>Stream.IoC.Facade</Name>
