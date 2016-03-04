@@ -7,7 +7,7 @@ using Stream.Repository.Facade.Product;
 
 namespace Stream.Core.Services.Product
 {
-    public class CategoryService : BaseDataService
+    public class CategoryService : BaseEntityFrameworkDataService
     {
         private readonly ICategoryRepository<Category, Guid> cateroryRepository;
         private readonly IProductRepository<Item, Guid> productRepository;

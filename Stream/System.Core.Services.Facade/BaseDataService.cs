@@ -2,11 +2,11 @@
 
 namespace System.Core.Services.Facade
 {
-    public abstract class BaseDataService : IDisposable
+    public abstract class BaseEntityFrameworkDataService : IDisposable
     {
         protected readonly IUnitOfWork UnitOfWork;
 
-        protected BaseDataService(IUnitOfWork unitOfWork)
+        protected BaseEntityFrameworkDataService(IUnitOfWork unitOfWork)
         {
             this.UnitOfWork = unitOfWork;
         }
