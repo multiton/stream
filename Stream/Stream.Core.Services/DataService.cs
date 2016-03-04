@@ -9,7 +9,7 @@ using Stream.Repository;
 
 namespace Stream.Core.Services
 {
-    public class DataService<TId, TEntity, TIdInitializer> : BaseEntityFrameworkDataService
+    public class DataService<TId, TEntity, TIdInitializer> : BaseDataService
         where TId : struct
         where TEntity : BaseEntity<TId>
         where TIdInitializer : INewId<TId>, new()
