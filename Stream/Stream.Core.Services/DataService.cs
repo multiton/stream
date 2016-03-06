@@ -5,20 +5,18 @@ using System.Linq.Expressions;
 
 using Stream.DAL.Facade;
 using Stream.Domain.Entity.Facade;
-using Stream.Repository;
+using Stream.Repository.Facade;
 
 namespace Stream.Core.Services
 {
-    public class DataService<TId, TEntity, TIdInitializer> : BaseDataService
+    public class DataService<TId, TEntity, TRepository> : BaseDataService
         where TId : struct
         where TEntity : BaseEntity<TId>
-        where TIdInitializer : INewId<TId>, new()
+        where TRepository : IModifiable<TEntity>, IFindable<TEntity>, ICreatable<TEntity>
     {
-        private readonly EntityFrameworkRepository<TId, TEntity, TIdInitializer> repository;
+        private readonly TRepository repository;
 
-        protected DataService(
-            IUnitOfWork unitOfWork,
-            EntityFrameworkRepository<TId, TEntity, TIdInitializer> repository) : base(unitOfWork)
+        protected DataService(IUnitOfWork uof, TRepository repository) : base(uof)
         {
             this.repository = repository;
         }
@@ -31,12 +29,22 @@ namespace Stream.Core.Services
             return newEntity;
         }
 
-        public TEntity Save(TEntity entity)
+        public TEntity Save(TEntity entity)            
         {
-            var updatedEntity = this.repository.Save(entity);
+            var savedEntity = repository.Save(entity);
             this.UnitOfWork.SaveChanges();
 
-            return updatedEntity;
+            return savedEntity;
+        }
+
+        public TEntity Get(Expression<Func<TEntity, bool>> predicate)
+        {
+            return this.repository.Get(predicate);
+        }
+
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return this.repository.Find(predicate);
         }
 
         public TEntity Remove(TEntity entity)
@@ -45,16 +53,6 @@ namespace Stream.Core.Services
             this.UnitOfWork.SaveChanges();
 
             return oldEntity;
-        }
-
-        public TEntity Get(TId entityId)
-        {
-            return this.repository.Get(entityId);
-        }
-
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            return this.repository.Find(predicate);
         }
     }
 }
