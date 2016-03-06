@@ -47,10 +47,6 @@
       <Project>{CE2C9D83-19B2-43D9-9C97-A5B1587AA2DF}</Project>
       <Name>Stream.Domain.Entity.Facade</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Stream.Domain.Entity\Stream.Domain.Entity.csproj">
-      <Project>{526b8929-e107-4b9a-98b6-778c6f2491c1}</Project>
-      <Name>Stream.Domain.Entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

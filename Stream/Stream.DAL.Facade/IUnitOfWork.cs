@@ -9,7 +9,7 @@ namespace Stream.DAL.Facade
 
         IOrderedQueryable<TEntity> GetDbSet<TEntity>() where TEntity : class;
 
-        // To Do:
+        // To Do: Pemding (re-consider later)
         // Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
