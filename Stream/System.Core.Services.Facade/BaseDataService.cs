@@ -1,6 +1,7 @@
-﻿using Stream.DAL.Facade;
+﻿using System;
+using Stream.DAL.Facade;
 
-namespace System.Core.Services.Facade
+namespace Stream.Core.Services.Facade
 {
     public abstract class BaseDataService : IDisposable
     {
@@ -11,9 +12,24 @@ namespace System.Core.Services.Facade
             this.UnitOfWork = unitOfWork;
         }
 
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    this.UnitOfWork.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
         public void Dispose()
         {
-            this.UnitOfWork.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

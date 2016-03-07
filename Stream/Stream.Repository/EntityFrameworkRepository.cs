@@ -20,7 +20,7 @@ namespace Stream.Repository
         private readonly DbContext dbContext;
         private readonly DbSet<TEntity> entities;
 
-        protected EntityFrameworkRepository(DbContext dbContext)
+        public EntityFrameworkRepository(DbContext dbContext)
         {
             this.dbContext = dbContext;
             this.entities = dbContext.Set<TEntity>();
@@ -44,9 +44,13 @@ namespace Stream.Repository
             return entities.FirstOrDefault(predicate);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Find(
+            Expression<Func<TEntity, bool>> predicate,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
         {
-            return entities.Where(predicate);
+            var result = entities.Where(predicate);
+
+            return orderBy != null ? orderBy(result) : result;
         }
 
         public TEntity Save(TEntity entity)

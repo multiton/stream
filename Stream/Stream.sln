@@ -55,7 +55,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Domain.Entity.Facade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Core.Services", "Stream.Core.Services\Stream.Core.Services.csproj", "{B59FD418-0AA2-40B8-A4A8-40A5B0AD0AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Core.Services.Facade", "System.Core.Services.Facade\System.Core.Services.Facade.csproj", "{1F9DAB0A-764F-40BF-8454-B66E7665BD5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream.Core.Services.Facade", "System.Core.Services.Facade\Stream.Core.Services.Facade.csproj", "{1F9DAB0A-764F-40BF-8454-B66E7665BD5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -59,9 +59,9 @@
       <Project>{75470c11-5b88-4a9b-af19-34da7a1e805a}</Project>
       <Name>Stream.Repository.Facade</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Core.Services.Facade\System.Core.Services.Facade.csproj">
+    <ProjectReference Include="..\System.Core.Services.Facade\Stream.Core.Services.Facade.csproj">
       <Project>{1F9DAB0A-764F-40BF-8454-B66E7665BD5B}</Project>
-      <Name>System.Core.Services.Facade</Name>
+      <Name>Stream.Core.Services.Facade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

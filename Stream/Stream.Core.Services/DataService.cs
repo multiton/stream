@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Core.Services.Facade;
+using System.Linq;
 using System.Linq.Expressions;
 
 using Stream.DAL.Facade;
-using Stream.Domain.Entity.Facade;
+using Stream.Core.Services.Facade;
 using Stream.Repository.Facade;
 
 namespace Stream.Core.Services
 {
-    public class DataService<TId, TEntity, TRepository> : BaseDataService
-        where TId : struct
-        where TEntity : BaseEntity<TId>
+    public class DataService<TEntity, TRepository> : BaseDataService
+        where TEntity : class 
         where TRepository : IModifiable<TEntity>, IFindable<TEntity>, ICreatable<TEntity>
     {
         private readonly TRepository repository;
 
-        protected DataService(IUnitOfWork uof, TRepository repository) : base(uof)
+        public DataService(IUnitOfWork uof, TRepository repository) : base(uof)
         {
             this.repository = repository;
         }
@@ -42,9 +41,11 @@ namespace Stream.Core.Services
             return this.repository.Get(predicate);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Find(
+            Expression<Func<TEntity, bool>> predicate,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
         {
-            return this.repository.Find(predicate);
+            return this.repository.Find(predicate, orderBy);
         }
 
         public TEntity Remove(TEntity entity)

@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Core.Services.Facade;
 
+using Stream.Core.Services.Facade;
 using Stream.DAL.Facade;
+
 using Stream.Domain.Entity.Product;
 using Stream.Repository.Facade.Product;
 

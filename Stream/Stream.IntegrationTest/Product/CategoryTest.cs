@@ -1,9 +1,11 @@
 ﻿using System;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Stream.Core.Services;
+using Stream.DAL.EntityFramework;
+using Stream.Domain.Entity.Facade;
 using Stream.Domain.Entity.Product;
-using Stream.IoC;
-using Stream.Repository.Facade.Product;
+using Stream.Repository;
 
 namespace Stream.IntegrationTest.Product
 {
@@ -13,8 +15,20 @@ namespace Stream.IntegrationTest.Product
         [TestMethod]
         public void AddRemoveCategory()
         {
-            // How to Resolve ???
-            // var categoryRepository = IoCHost.Instance.Get<ICategoryRepository<Category, Guid>>();
+            var context = new CoreDataContext();
+            var uow = new EntityFrameworkUnitOfWork(context);
+
+            var repo = new EntityFrameworkRepository<Guid, Category, GuidIdInitializer>(context);
+
+            var caregoryService = new DataService<
+                Category,
+                EntityFrameworkRepository<Guid, Category, GuidIdInitializer>>(uow, repo);
+
+            var newCategory = caregoryService.Add(new Category() { Name = "Computres" });
+
+            var existingCategory = caregoryService.Get(c => c.Id == newCategory.Id);
+
+            Assert.IsNotNull(existingCategory);
         }
     }
 }

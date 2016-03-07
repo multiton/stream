@@ -7,8 +7,8 @@
     <ProjectGuid>{1F9DAB0A-764F-40BF-8454-B66E7665BD5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>System.Core.Services.Facade</RootNamespace>
-    <AssemblyName>System.Core.Services.Facade</AssemblyName>
+    <RootNamespace>Stream.Core.Services.Facade</RootNamespace>
+    <AssemblyName>Stream.Core.Services.Facade</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,11 +5,11 @@ using Stream.DAL.Facade;
 
 namespace Stream.Repository
 {
-    internal class EntityFrameworkUnitOfWork : IUnitOfWork
+    public class EntityFrameworkUnitOfWork : IUnitOfWork
     {
         private readonly DbContext dbContext;
 
-        protected EntityFrameworkUnitOfWork(DbContext dbContext)
+        public EntityFrameworkUnitOfWork(DbContext dbContext)
         {
             this.dbContext = dbContext;
         }
