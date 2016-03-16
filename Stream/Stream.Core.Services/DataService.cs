@@ -15,7 +15,7 @@ namespace Stream.Core.Services
     {
         private readonly TRepository repository;
 
-        public DataService(IUnitOfWork uof, TRepository repository) : base(uof)
+        public DataService(IUnitOfWork uow, TRepository repository) : base(uow)
         {
             this.repository = repository;
         }

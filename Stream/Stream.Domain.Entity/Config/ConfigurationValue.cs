@@ -5,7 +5,7 @@ using Stream.Domain.Entity.Facade;
 
 namespace Stream.Domain.Entity.Config
 {
-    public class Setting : BaseEntity<Guid>
+    public class ConfigurationValue : BaseEntity<Guid>
     {
         [Required]
         [StringLength(32)]
