@@ -25,7 +25,6 @@ namespace Stream.Domain.Entity.Config
         [StringLength(4096)]
         public string CurrentValue { get; set; }
 
-        [StringLength(6)]
-        public string Owner { get; set; }
+        public Guid TenantId { get; set; }
     }
 }
