@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Entity;
-
 using Stream.Domain.Entity.Product;
 
 namespace Stream.DAL.EntityFramework
@@ -12,7 +11,7 @@ namespace Stream.DAL.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.ConsoleApp.NewDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=huron;Database=Stream;User=sa;Password=stalker45");
         }
     }
 }
