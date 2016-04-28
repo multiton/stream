@@ -17,23 +17,29 @@ namespace Stream.IntegrationTest.Product
         public void AddRemoveCategory()
         {
             var context = new CoreDataContext();
-
             var uow = new EntityFrameworkUnitOfWork(context);
-
             var repo = new EntityFrameworkRepository<Guid, Category, GuidIdInitializer>(context);
 
-            var caregoryService = new DataService<
-                Category,
-                EntityFrameworkRepository<Guid, Category, GuidIdInitializer>>(uow, repo);
+            var caregoryService = new DataService<Category, EntityFrameworkRepository<Guid, Category, GuidIdInitializer>>(uow, repo);
 
             var newCategory = caregoryService.Add(new Category
             {
                 Name = "Computres",
-                Categories = new List<Category> { new Category { Name = "LapTops"} }
+                Categories = new List<Category>
+                {
+                    new Category { Name = "-DeskTops" },
+                    new Category { Name = "-Servers" },
+                    new Category { Name = "-Laptops", Categories = new List<Category>
+                        {
+                            new Category { Name = "--Tablets" },
+                            new Category { Name = "--Shmablets" },
+                        }
+                    },
+                }
             });
 
             var justAdded = caregoryService.Get(c => c.Id == newCategory.Id);
-            Assert.IsNotNull(justAdded);
+            Assert.AreEqual(justAdded.Categories.Count, newCategory.Categories.Count);
 
             caregoryService.Remove(justAdded);
             justAdded = caregoryService.Get(c => c.Id == newCategory.Id);

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
 
 namespace Stream.DAL.EntityFramework.Migrations
@@ -27,6 +26,7 @@ namespace Stream.DAL.EntityFramework.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
             migrationBuilder.CreateTable(
                 name: "Item",
                 columns: table => new
