@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+
 using Stream.Domain.Entity.Product;
 
 namespace Stream.DAL.EntityFramework

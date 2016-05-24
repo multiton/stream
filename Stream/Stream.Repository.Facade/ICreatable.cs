@@ -2,8 +2,6 @@
 {
     public interface ICreatable<TEntity> where TEntity: class
     {
-        TEntity Add(TEntity entity);
-
-        TEntity Remove(TEntity entity);
+        TEntity Add(TEntity entity);        
     }
 }

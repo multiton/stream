@@ -21,7 +21,7 @@ namespace Stream.IoC.Installer
                 (
                     typeof(ICreatable<>),
                     typeof(IModifiable<>),
-                    typeof(IFindable<>)
+                    typeof(IRemovable<>)
                 )
                 .WithServiceAllInterfaces()
                 .LifestylePerWebRequest()

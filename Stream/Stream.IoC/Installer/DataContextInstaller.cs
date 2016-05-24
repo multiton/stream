@@ -2,7 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 
-using Microsoft.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 using Stream.DAL.EntityFramework;
 

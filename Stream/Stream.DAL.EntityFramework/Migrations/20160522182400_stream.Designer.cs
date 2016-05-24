@@ -1,20 +1,20 @@
-using System;
-using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Data.Entity.Metadata;
-using Microsoft.Data.Entity.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Stream.DAL.EntityFramework;
 
 namespace Stream.DAL.EntityFramework.Migrations
 {
     [DbContext(typeof(CoreDataContext))]
-    [Migration("20160427032502_InitialDBcreate")]
-    partial class InitialDBcreate
+    [Migration("20160522182400_stream")]
+    partial class stream
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
+                .HasAnnotation("ProductVersion", "1.0.0-rc2-20896")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Stream.Domain.Entity.Product.Category", b =>
@@ -31,6 +31,10 @@ namespace Stream.DAL.EntityFramework.Migrations
                     b.Property<Guid?>("ParentId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Stream.Domain.Entity.Product.Item", b =>
@@ -43,6 +47,8 @@ namespace Stream.DAL.EntityFramework.Migrations
                         .HasAnnotation("MaxLength", 255);
 
                     b.HasKey("Id");
+
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("Stream.Domain.Entity.Product.Category", b =>

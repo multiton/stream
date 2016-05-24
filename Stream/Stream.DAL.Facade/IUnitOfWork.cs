@@ -7,9 +7,9 @@ namespace Stream.DAL.Facade
     {
         int SaveChanges();
 
-        IOrderedQueryable<TEntity> GetDbSet<TEntity>() where TEntity : class;
+        IEntityCollection<TEntity> GetDbSet<TEntity>() where TEntity : class;
 
-        // To Do: Pemding (re-consider later)
+        // To Do: Pending (re-consider later)
         // Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

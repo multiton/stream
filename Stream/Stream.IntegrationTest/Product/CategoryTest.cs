@@ -20,7 +20,7 @@ namespace Stream.IntegrationTest.Product
             var uow = new EntityFrameworkUnitOfWork(context);
             var repo = new EntityFrameworkRepository<Guid, Category, GuidIdInitializer>(context);
 
-            var caregoryService = new DataService<Category, EntityFrameworkRepository<Guid, Category, GuidIdInitializer>>(uow, repo);
+            var caregoryService = new DataService<Guid, Category, EntityFrameworkRepository<Guid, Category, GuidIdInitializer>>(uow, repo);
 
             var newCategory = caregoryService.Add(new Category
             {

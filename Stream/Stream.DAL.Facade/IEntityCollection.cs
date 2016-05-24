@@ -1,25 +1,21 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-
-using Stream.Domain.Entity.Facade;
+using System.ComponentModel;
+using System.Collections;
 
 namespace Stream.DAL.Facade
 {
-    public interface IEntityCollection<TEntity, TId>
-        where TEntity : BaseEntity<TId>
-        where TId : struct
+    public interface IEntityCollection<TEntity> :
+        IOrderedQueryable<TEntity>,
+        IQueryable<TEntity>,
+        IEnumerable<TEntity>,
+        IEnumerable,
+        IQueryable,
+        IOrderedQueryable,
+        // IAsyncEnumerableAccessor<TEntity>,
+        // IInfrastructure<IServiceProvider>,
+        IListSource
+        where TEntity : class
     {
-        void Add(TEntity entity);
-
-        bool Remove(TEntity entity);
-
-        void Update(TEntity entity);
-
-        IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
-
-        TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
-
-        IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
     }
 }

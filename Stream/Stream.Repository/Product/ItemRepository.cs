@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 using Stream.Domain.Entity.Facade;
 using Stream.Domain.Entity.Product;

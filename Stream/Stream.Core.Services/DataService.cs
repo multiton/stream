@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 
 using Stream.DAL.Facade;
 using Stream.Core.Services.Facade;
@@ -9,9 +9,9 @@ using Stream.Repository.Facade;
 
 namespace Stream.Core.Services
 {
-    public class DataService<TEntity, TRepository> : BaseDataService
+    public class DataService<TId, TEntity, TRepository> : BaseDataService
         where TEntity : class 
-        where TRepository : IModifiable<TEntity>, IFindable<TEntity>, ICreatable<TEntity>
+        where TRepository : ICreatable<TEntity>, IRetrievable<TId, TEntity>, IModifiable<TEntity>, IRemovable<TEntity> 
     {
         private readonly TRepository repository;
 

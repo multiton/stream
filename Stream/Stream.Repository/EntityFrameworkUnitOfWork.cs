@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-using Microsoft.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using Stream.DAL.Facade;
 
 namespace Stream.Repository
@@ -14,9 +12,9 @@ namespace Stream.Repository
             this.dbContext = dbContext;
         }
 
-        public IOrderedQueryable<TEntity> GetDbSet<TEntity>() where TEntity : class
+        public IEntityCollection<TEntity> GetDbSet<TEntity>() where TEntity : class
         {
-            return dbContext.Set<TEntity>();
+            return dbContext.Set<TEntity>() as IEntityCollection<TEntity>;
         }
 
         public int SaveChanges()
